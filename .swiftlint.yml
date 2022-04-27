@@ -1,0 +1,182 @@
+reporter: "xcode" # reporter type (xcode, json, csv, checkstyle, junit)
+
+included:
+  - GitHubApp
+
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage/
+  - build/
+  - vendor/
+
+# If you need help with rules run $ swiftlint 
+
+opt_in_rules:
+  - closure_end_indentation
+  - closure_spacing
+  - comments_space
+  - empty_count
+  - explicit_init
+  - explicit_failure_calls
+  - extension_access_modifier
+  - fatal_error_message
+  - first_where
+  - force_cast
+  - force_unwrapping
+  - implicitly_unwrapped_optional
+  - multiline_parameters
+  - multiple_empty_lines
+  - nesting
+  - number_separator
+  - operator_usage_whitespace
+  - overridden_super_call
+  - private_outlet
+  - prohibited_super_call
+  - protocol_property_accessors_order
+  - redundant_nil_coalescing
+  - sorted_imports
+  - syntactic_sugar
+  - vertical_parameter_alignment_on_call
+  - vertical_whitespace
+  - multiline_function_chains
+  - weak_delegate
+  - mark
+  - opening_brace
+  - vertical_whitespace_between_cases
+  - trailing_whitespace
+  - closing_brace
+  - comma
+  - file_name_no_space
+  - no_space_in_method_call
+  - operator_whitespace
+  - return_arrow_whitespace
+  - yoda_condition
+  - unused_import
+  - unneeded_break_in_switch
+  - trailing_semicolon
+  - statement_position
+  - sorted_first_last
+  - redundant_type_annotation
+  - redundant_set_access_control
+  - redundant_optional_initialization
+  - redundant_discardable_let
+  - reduce_boolean
+  - private_over_fileprivate
+  - prefixed_toplevel_constant
+  - multiple_closures_with_trailing_closure
+  - multiline_parameters_brackets
+  - multiline_literal_brackets
+  - multiline_arguments
+  - multiline_arguments_brackets
+  - modifier_order
+  - large_tuple
+  - last_where
+  - flatmap_over_map_reduce
+  - force_try
+  - for_where
+  - block_based_kvo
+  - implicit_return
+  - anyobject_protocol
+  - class_delegate_protocol
+  - compiler_protocol_init
+
+
+trailing_whitespace:
+  ignores_empty_lines: true
+  
+cyclomatic_complexity:
+  ignores_case_statements: true
+  warning: 20
+
+function_body_length:
+  warning: 80
+  error: 100
+
+file_length:
+  warning: 380
+  error: 420
+
+line_length: 
+  warning: 180 
+  error: 200
+  ignores_comments: true
+  ignores_urls: true
+
+nesting:
+  type_level:
+    warning: 3
+    error: 6
+  statement_level:
+    warning: 5
+    error: 10
+
+identifier_name:
+  allowed_symbols: "_"
+  min_length: 2
+  max_length: 
+    warning: 35
+    error: 40
+  excluded:
+    - id
+    - url
+    - key
+    - at
+    - by
+    - to
+    - y
+    - x
+
+implicitly_unwrapped_optional:
+  mode: all_except_iboutlets
+
+large_tuple:
+  warning: 4
+  error: 5
+
+type_body_length:
+  warning: 300
+  error: 350
+
+trailing_comma:
+  mandatory_comma: true
+
+number_separator:
+  minimum_length: 8
+
+private_outlet:
+  allow_private_set: true
+
+function_parameter_count:
+  warning: 6
+
+multiline_arguments:
+  first_argument_location: next_line
+
+private_outlet:
+ severity: error
+
+colon: 
+  severity: error
+comma: error
+empty_count: error
+legacy_constant: error
+legacy_constructor: error
+opening_brace: error
+trailing_newline: error
+trailing_semicolon: error
+
+custom_rules:
+  comments_space: # From https://github.com/brandenr/swiftlintconfig
+    name: "Space After Comment"
+    regex: '(^ *//\w+)'
+    message: "There should be a space after //"
+    severity: warning
+  explicit_failure_calls:
+      name: “Avoid asserting ‘false’”
+      regex: ‘((assert|precondition)\(false)’
+      message: “Use assertionFailure() or preconditionFailure() instead.”
+      severity: warning
+  multiple_empty_lines:
+     name: "Multiple Empty Lines"
+     regex: '((?:\s*\n){3,})'
+     message: "There are too many line breaks"
+     severity: error
