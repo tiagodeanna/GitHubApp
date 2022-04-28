@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		5A2DED1428180E310023A497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DED1328180E310023A497 /* ViewController.swift */; };
 		5A2DED1928180E330023A497 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2DED1828180E330023A497 /* Assets.xcassets */; };
 		5A2DED1C28180E330023A497 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2DED1A28180E330023A497 /* LaunchScreen.storyboard */; };
+		5A478AA8281AE2EB0059E249 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A478AA7281AE2EB0059E249 /* SnapKit */; };
+		5A478AAF281B01070059E249 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A478AAE281B01070059E249 /* MyCustomCell.swift */; };
 		FA05B75D616F25E4D86513A4 /* Pods_GitHubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A704C4D0B56AFD8CF1CB5A9 /* Pods_GitHubApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +25,7 @@
 		5A2DED1828180E330023A497 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A2DED1B28180E330023A497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A2DED1D28180E330023A497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5A478AAE281B01070059E249 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
 		643D046C818251B6B4F54115 /* Pods-GitHubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubApp.debug.xcconfig"; path = "Target Support Files/Pods-GitHubApp/Pods-GitHubApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7A704C4D0B56AFD8CF1CB5A9 /* Pods_GitHubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF36F78BBCFDBF7840B14983 /* Pods-GitHubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubApp.release.xcconfig"; path = "Target Support Files/Pods-GitHubApp/Pods-GitHubApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -34,6 +37,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA05B75D616F25E4D86513A4 /* Pods_GitHubApp.framework in Frameworks */,
+				5A478AA8281AE2EB0059E249 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +80,7 @@
 				5A2DED1828180E330023A497 /* Assets.xcassets */,
 				5A2DED1A28180E330023A497 /* LaunchScreen.storyboard */,
 				5A2DED1D28180E330023A497 /* Info.plist */,
+				5A478AAE281B01070059E249 /* MyCustomCell.swift */,
 			);
 			path = GitHubApp;
 			sourceTree = "<group>";
@@ -106,6 +111,9 @@
 			dependencies = (
 			);
 			name = GitHubApp;
+			packageProductDependencies = (
+				5A478AA7281AE2EB0059E249 /* SnapKit */,
+			);
 			productName = GitHubApp;
 			productReference = 5A2DED0C28180E310023A497 /* GitHubApp.app */;
 			productType = "com.apple.product-type.application";
@@ -133,6 +141,9 @@
 				Base,
 			);
 			mainGroup = 5A2DED0328180E310023A497;
+			packageReferences = (
+				5A478AA6281AE2EB0059E249 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 5A2DED0D28180E310023A497 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -204,6 +215,7 @@
 			files = (
 				5A2DED1428180E310023A497 /* ViewController.swift in Sources */,
 				5A2DED1028180E310023A497 /* AppDelegate.swift in Sources */,
+				5A478AAF281B01070059E249 /* MyCustomCell.swift in Sources */,
 				5A2DED1228180E310023A497 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -400,6 +412,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5A478AA6281AE2EB0059E249 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5A478AA7281AE2EB0059E249 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5A478AA6281AE2EB0059E249 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5A2DED0428180E310023A497 /* Project object */;
 }
