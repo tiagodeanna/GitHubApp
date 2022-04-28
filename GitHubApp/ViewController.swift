@@ -14,11 +14,34 @@ final class ViewController: UIViewController {
         return tableView
     }()
     
+    lazy var titleLabel: UILabel = {
+       let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Title"
+        label.font = UIFont.boldSystemFont(ofSize: 35)
+        label.textColor = .red
+        label.backgroundColor = .gray
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = .white
-        setupView()
         viewDidLayoutSubviews()
+        view.addSubview(self.titleLabel)
+        configConstraints()
+        setupView()
+    }
+    
+    private func configConstraints() {
+        NSLayoutConstraint.activate([
+            self.titleLabel.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.titleLabel.centerYAnchor.constraint(equalTo: self.view.centerYAnchor),
+            self.titleLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20),
+            self.titleLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -80),
+        ])
     }
     
     private func setupView() {
@@ -32,6 +55,7 @@ final class ViewController: UIViewController {
                 .equalToSuperview()
         }
     }
+    
 }
 
 extension ViewController: UITableViewDataSource {
@@ -43,17 +67,18 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = "Name Repository: \(indexPath.row)"
+        cell.textLabel?.text = "Title: \(indexPath.row)"
         cell.imageView?.image = UIImage(named: "perfil")
-        cell.backgroundColor = .white
+        cell.backgroundColor = .yellow
         return cell
     }
+    
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let secondViewController = UIViewController()
-        secondViewController.view.backgroundColor = .orange
+        secondViewController.view.backgroundColor = .white
         navigationController?.pushViewController(secondViewController, animated: true)
     }
     
