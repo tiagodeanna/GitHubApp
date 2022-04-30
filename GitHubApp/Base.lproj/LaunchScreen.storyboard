@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -22,7 +21,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.144548595" green="0.16038516159999999" blue="0.18533846740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="iev-jo-3K1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5xg-pa-NzY"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iev-jo-3K1" secondAttribute="bottom" id="MHe-pD-Ssz"/>
@@ -38,8 +37,5 @@
     </scenes>
     <resources>
         <image name="what-is-github-1-1" width="730" height="365"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

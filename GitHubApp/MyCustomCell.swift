@@ -1,20 +1,44 @@
+import SnapKit
 import UIKit
 
-class MyCustomCell: UITableViewCell {
+final class MyCustomCell: UITableViewCell {
+    private let titleLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Title"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .black
+        label.backgroundColor = .yellow
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        return label
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = .link
+        setupConstraints()
+        configureViews()
     }
-
+    
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        imageView?.frame = CGRect(x: 300, y: 50, width: 100, height: 100)
-        textLabel?.frame = CGRect(x: 5, y: 5, width: 100, height: 100)
-        textLabel?.adjustsFontForContentSizeCategory = false
+    func update(title: String) {
+        titleLabel.text = title
+    }
+    
+    private func setupConstraints() {
+        contentView.addSubview(titleLabel)
         
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(contentView.snp.centerY)
+            make.centerX.equalTo(contentView.snp.centerX)
+        }
+    }
+    
+    private func configureViews() {
+        backgroundColor = .red
+        selectionStyle = .none
     }
 }
