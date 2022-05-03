@@ -18,6 +18,7 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .blue
         setupView()
+        configureViews()
     }
     
     private func setupView() {
@@ -31,6 +32,10 @@ final class ViewController: UIViewController {
         }
     }
     
+    func configureViews() {
+            title = "Github App"
+            view.backgroundColor = .white
+        }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -42,7 +47,7 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyCustomCell else {
             return UITableViewCell()
         }
-        cell.update(title: "Github App")
+        cell.update(title: "Title")
         return cell
     }
     
