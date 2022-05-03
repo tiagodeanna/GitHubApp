@@ -1,11 +1,11 @@
 {
   "images" : [
     {
+      "filename" : "github-icon.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "perfil.png",
       "idiom" : "universal",
       "scale" : "2x"
     },

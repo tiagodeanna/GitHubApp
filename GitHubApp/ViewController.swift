@@ -9,7 +9,7 @@ final class ViewController: UIViewController {
         tableView.rowHeight = 150
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .green
+        tableView.backgroundColor = .darkGray
         tableView.register(MyCustomCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
@@ -47,7 +47,12 @@ extension ViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyCustomCell else {
             return UITableViewCell()
         }
-        cell.update(title: "Title")
+        cell.update(
+            title: "Title",
+            perfilImage: "usuario",
+            forkImage: "fork",
+            starImage: "estrela"
+            )
         return cell
     }
     
