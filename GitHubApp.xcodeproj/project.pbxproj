@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		5A2DED1028180E310023A497 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DED0F28180E310023A497 /* AppDelegate.swift */; };
 		5A2DED1228180E310023A497 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DED1128180E310023A497 /* SceneDelegate.swift */; };
-		5A2DED1428180E310023A497 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DED1328180E310023A497 /* ViewController.swift */; };
 		5A2DED1928180E330023A497 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A2DED1828180E330023A497 /* Assets.xcassets */; };
 		5A2DED1C28180E330023A497 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A2DED1A28180E330023A497 /* LaunchScreen.storyboard */; };
 		5A478AA8281AE2EB0059E249 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5A478AA7281AE2EB0059E249 /* SnapKit */; };
-		5A478AAF281B01070059E249 /* MyCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A478AAE281B01070059E249 /* MyCustomCell.swift */; };
+		5AF84BBD2822FDD4002BA3AB /* RepositoryViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A478AAE281B01070059E249 /* RepositoryViewCell.swift */; };
+		5AF84BBF2822FDD8002BA3AB /* RepositoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A2DED1328180E310023A497 /* RepositoryViewController.swift */; };
+		5AF84BC52823008D002BA3AB /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF84BC42823008D002BA3AB /* PullRequestViewController.swift */; };
+		5AF84BC8282300BB002BA3AB /* PullRequestViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF84BC7282300BB002BA3AB /* PullRequestViewCell.swift */; };
 		FA05B75D616F25E4D86513A4 /* Pods_GitHubApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A704C4D0B56AFD8CF1CB5A9 /* Pods_GitHubApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -21,11 +23,13 @@
 		5A2DED0C28180E310023A497 /* GitHubApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A2DED0F28180E310023A497 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5A2DED1128180E310023A497 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5A2DED1328180E310023A497 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5A2DED1328180E310023A497 /* RepositoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewController.swift; sourceTree = "<group>"; };
 		5A2DED1828180E330023A497 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A2DED1B28180E330023A497 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A2DED1D28180E330023A497 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5A478AAE281B01070059E249 /* MyCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCustomCell.swift; sourceTree = "<group>"; };
+		5A478AAE281B01070059E249 /* RepositoryViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryViewCell.swift; sourceTree = "<group>"; };
+		5AF84BC42823008D002BA3AB /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
+		5AF84BC7282300BB002BA3AB /* PullRequestViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewCell.swift; sourceTree = "<group>"; };
 		643D046C818251B6B4F54115 /* Pods-GitHubApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubApp.debug.xcconfig"; path = "Target Support Files/Pods-GitHubApp/Pods-GitHubApp.debug.xcconfig"; sourceTree = "<group>"; };
 		7A704C4D0B56AFD8CF1CB5A9 /* Pods_GitHubApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GitHubApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF36F78BBCFDBF7840B14983 /* Pods-GitHubApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GitHubApp.release.xcconfig"; path = "Target Support Files/Pods-GitHubApp/Pods-GitHubApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,26 +80,26 @@
 			children = (
 				5A86BEB92822CBE300C27BE5 /* Resources */,
 				5A86BEB82822CB4F00C27BE5 /* Application */,
-				5A86BEB72822CB2B00C27BE5 /* Controller */,
-				5A86BEB62822CB1B00C27BE5 /* Cells */,
+				5A86BEB72822CB2B00C27BE5 /* Features */,
 			);
 			path = GitHubApp;
 			sourceTree = "<group>";
 		};
-		5A86BEB62822CB1B00C27BE5 /* Cells */ = {
+		5A86BEB62822CB1B00C27BE5 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				5A478AAE281B01070059E249 /* MyCustomCell.swift */,
+				5A478AAE281B01070059E249 /* RepositoryViewCell.swift */,
 			);
-			path = Cells;
+			path = Cell;
 			sourceTree = "<group>";
 		};
-		5A86BEB72822CB2B00C27BE5 /* Controller */ = {
+		5A86BEB72822CB2B00C27BE5 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				5A2DED1328180E310023A497 /* ViewController.swift */,
+				5AF84BC328230012002BA3AB /* PullRequest */,
+				5AF84BC12822FF9B002BA3AB /* Repository */,
 			);
-			path = Controller;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		5A86BEB82822CB4F00C27BE5 /* Application */ = {
@@ -115,6 +119,32 @@
 				5A2DED1828180E330023A497 /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		5AF84BC12822FF9B002BA3AB /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				5A86BEB62822CB1B00C27BE5 /* Cell */,
+				5A2DED1328180E310023A497 /* RepositoryViewController.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		5AF84BC328230012002BA3AB /* PullRequest */ = {
+			isa = PBXGroup;
+			children = (
+				5AF84BCA2823055A002BA3AB /* Cell */,
+				5AF84BC42823008D002BA3AB /* PullRequestViewController.swift */,
+			);
+			path = PullRequest;
+			sourceTree = "<group>";
+		};
+		5AF84BCA2823055A002BA3AB /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5AF84BC7282300BB002BA3AB /* PullRequestViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		B3DC542B3CEB9393767A5374 /* Frameworks */ = {
@@ -245,10 +275,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A2DED1428180E310023A497 /* ViewController.swift in Sources */,
+				5AF84BBF2822FDD8002BA3AB /* RepositoryViewController.swift in Sources */,
+				5AF84BBD2822FDD4002BA3AB /* RepositoryViewCell.swift in Sources */,
 				5A2DED1028180E310023A497 /* AppDelegate.swift in Sources */,
-				5A478AAF281B01070059E249 /* MyCustomCell.swift in Sources */,
+				5AF84BC8282300BB002BA3AB /* PullRequestViewCell.swift in Sources */,
 				5A2DED1228180E310023A497 /* SceneDelegate.swift in Sources */,
+				5AF84BC52823008D002BA3AB /* PullRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

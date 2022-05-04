@@ -1,24 +1,23 @@
 import SnapKit
 import UIKit
 
-final class MyCustomCell: UITableViewCell {
+final class RepositoryViewCell: UITableViewCell {
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "Title"
-        label.font = UIFont.boldSystemFont(ofSize: 16)
-        label.textColor = .black
-        label.backgroundColor = .yellow
-        label.textAlignment = .left
-        label.numberOfLines = 0
+        label.text = "title"
+        label.font = UIFont.boldSystemFont(ofSize: 18)
+        label.textColor = .systemBlue
+        label.backgroundColor = .clear
+        label.numberOfLines = 2
         return label
     }()
     
     private let descriptionLabel: UILabel = {
         let label = UILabel()
         label.text = "description"
-        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.font = UIFont.boldSystemFont(ofSize: 14)
         label.textColor = .black
-        label.backgroundColor = .yellow
+        label.backgroundColor = .clear
         label.textAlignment = .center
         label.numberOfLines = 0
         return label
@@ -29,7 +28,7 @@ final class MyCustomCell: UITableViewCell {
         image.contentMode = .scaleAspectFill
         image.layer.cornerRadius = 40
         image.layer.masksToBounds = true
-        image.backgroundColor = .yellow
+        image.backgroundColor = .systemGray4
         return image
     }()
     
@@ -37,10 +36,10 @@ final class MyCustomCell: UITableViewCell {
         let label = UILabel()
         label.text = "User Name"
         label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = .black
+        label.textColor = .systemBlue
         label.textAlignment = .center
-        label.numberOfLines = 0
-        label.backgroundColor = .yellow
+        label.numberOfLines = 2
+        label.backgroundColor = .clear
         return label
     }()
     
@@ -48,48 +47,46 @@ final class MyCustomCell: UITableViewCell {
         let label = UILabel()
         label.text = "Name Surname"
         label.font = UIFont.boldSystemFont(ofSize: 10)
-        label.textColor = .black
+        label.textColor = .systemGray3
         label.textAlignment = .center
-        label.numberOfLines = 0
-        label.backgroundColor = .yellow
+        label.numberOfLines = 1
+        label.backgroundColor = .clear
         return label
     }()
     
     private let forkImageView: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.layer.masksToBounds = true
-        image.backgroundColor = .yellow
+        image.backgroundColor = .clear
         return image
     }()
     
     private let branchcounterLabel: UILabel = {
         let label = UILabel()
-        label.text = "58"
-        label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = .black
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.backgroundColor = .orange
+        label.text = "640"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .systemOrange
+        label.numberOfLines = 1
+        label.backgroundColor = .clear
         return label
     }()
     
     private let starcounterLabel: UILabel = {
         let label = UILabel()
-        label.text = "12"
-        label.font = UIFont.boldSystemFont(ofSize: 12)
-        label.textColor = .black
-        label.textAlignment = .center
-        label.numberOfLines = 0
-        label.backgroundColor = .blue
+        label.text = "98"
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.textColor = .systemOrange
+        label.numberOfLines = 1
+        label.backgroundColor = .clear
         return label
     }()
     
     private let starImageView: UIImageView = {
-       let image = UIImageView()
+        let image = UIImageView()
         image.contentMode = .scaleAspectFill
         image.layer.masksToBounds = true
-        image.backgroundColor = .yellow
+        image.backgroundColor = .clear
         return image
     }()
     
@@ -148,7 +145,7 @@ final class MyCustomCell: UITableViewCell {
             make.top.equalTo(contentView.snp.top).offset(8)
             make.bottom.equalTo(contentView.snp.bottom).offset(-64)
             make.right.equalTo(contentView.snp.right).offset(-16)
-            make.height.equalTo(80)
+            make.height.equalTo(50)
             make.width.equalTo(80)
         }
         
@@ -189,7 +186,8 @@ final class MyCustomCell: UITableViewCell {
     }
     
     private func configureViews() {
-        backgroundColor = .red
+        backgroundColor = .clear
         selectionStyle = .none
     }
+    
 }

@@ -2,15 +2,14 @@ import UIKit
 
 import SnapKit
 
-final class ViewController: UIViewController {
-    
+final class RepositoryViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.rowHeight = 150
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.backgroundColor = .darkGray
-        tableView.register(MyCustomCell.self, forCellReuseIdentifier: "Cell")
+        tableView.backgroundColor = .white
+        tableView.register(RepositoryViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
     
@@ -33,36 +32,37 @@ final class ViewController: UIViewController {
     }
     
     func configureViews() {
-            title = "Github App"
-            view.backgroundColor = .white
-        }
+        title = "Github App"
+        view.backgroundColor = .red
+    }
+    
 }
 
-extension ViewController: UITableViewDataSource {
+extension RepositoryViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? MyCustomCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? RepositoryViewCell else {
             return UITableViewCell()
         }
         cell.update(
-            title: "Title",
+            title: "Nome Repositório",
             perfilImage: "usuario",
             forkImage: "fork",
             starImage: "estrela"
-            )
+        )
         return cell
     }
     
 }
 
-extension ViewController: UITableViewDelegate {
+extension RepositoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let secondViewController = UIViewController()
-        secondViewController.view.backgroundColor = .orange
-        navigationController?.pushViewController(secondViewController, animated: true)
-    }
+          let secondViewController = UIViewController()
+          secondViewController.view.backgroundColor = .orange
+          navigationController?.pushViewController(secondViewController, animated: true)
+      }
     
 }
