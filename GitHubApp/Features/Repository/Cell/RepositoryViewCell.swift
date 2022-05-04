@@ -26,7 +26,7 @@ final class RepositoryViewCell: UITableViewCell {
     private var perfilImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 40
+        image.layer.cornerRadius = 32
         image.layer.masksToBounds = true
         image.backgroundColor = .systemGray4
         return image
@@ -142,11 +142,11 @@ final class RepositoryViewCell: UITableViewCell {
         }
         
         perfilImageView.snp.makeConstraints { make in
-            make.top.equalTo(contentView.snp.top).offset(8)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-64)
-            make.right.equalTo(contentView.snp.right).offset(-16)
-            make.height.equalTo(50)
-            make.width.equalTo(80)
+            make.top.equalTo(contentView.snp.top).offset(16)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-68)
+            make.right.equalTo(contentView.snp.right).offset(-24)
+            make.height.equalTo(35)
+            make.width.equalTo(60)
         }
         
         userNameLabel.snp.makeConstraints { make in

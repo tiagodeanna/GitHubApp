@@ -60,8 +60,7 @@ extension RepositoryViewController: UITableViewDataSource {
 
 extension RepositoryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-          let secondViewController = UIViewController()
-          secondViewController.view.backgroundColor = .orange
+        let secondViewController = PullRequestViewController()
           navigationController?.pushViewController(secondViewController, animated: true)
       }
     

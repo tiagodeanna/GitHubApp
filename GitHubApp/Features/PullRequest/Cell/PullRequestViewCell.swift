@@ -64,20 +64,13 @@ final class PullRequestViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(title: String, perfilImage: String, description: String) {
-        titleLabel.text = title
-        perfilImageView.image = UIImage(named: perfilImage)
-        descriptionLabel.text = description
-    }
-    
-    private func setupConstraints() {
+     func setupConstraints() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(descriptionLabel)
         contentView.addSubview(perfilImageView)
         contentView.addSubview(userNameLabel)
         contentView.addSubview(fullNameLabel)
         
-        func setupConstraints() {
             titleLabel.snp.makeConstraints { make in
                 make.top.equalTo(contentView.snp.top).offset(8)
                 make.left.equalTo(contentView.snp.left).offset(16)
@@ -115,4 +108,3 @@ final class PullRequestViewCell: UITableViewCell {
             selectionStyle = .none
         }
     }
-}

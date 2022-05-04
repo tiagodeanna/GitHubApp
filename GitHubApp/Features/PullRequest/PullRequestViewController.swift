@@ -8,20 +8,23 @@ final class PullRequestViewController: UIViewController {
         tableView.delegate = self
         tableView.separatorColor = .darkGray
         tableView.backgroundColor = .clear
-        tableView.rowHeight = 180
-        tableView.register(RepositoryViewCell.self, forCellReuseIdentifier: "Cell")
+        tableView.rowHeight = 150
+        tableView.register(PullRequestViewCell.self, forCellReuseIdentifier: "RequestCell")
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupConstraints()
+        configureViews()
+        pullrequestsetupView()
     }
     
-    func setupConstraints() {
+    private func pullrequestsetupView() {
+        view.addSubview(tableView)
+        
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom)
+            make.top.equalTo(view.snp.top)
+            make.bottom.equalTo(view.snp.bottom)
             make.left.equalTo(view.snp.left)
             make.right.equalTo(view.snp.right)
         }
@@ -40,19 +43,12 @@ extension PullRequestViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? RepositoryViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath) as? PullRequestViewCell else {
             return UITableViewCell()
         }
-        cell.update(
-            title: "Nome Repositório",
-            perfilImage: "usuario",
-            forkImage: "fork",
-            starImage: "estrela"
-        )
-        return cell
+            return cell
+        }
     }
-    
-}
 
 extension PullRequestViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
