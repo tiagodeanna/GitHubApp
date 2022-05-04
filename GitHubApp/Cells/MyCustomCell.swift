@@ -14,14 +14,14 @@ final class MyCustomCell: UITableViewCell {
     }()
     
     private let descriptionLabel: UILabel = {
-        let infolabel = UILabel()
-        infolabel.text = "description"
-        infolabel.font = UIFont.boldSystemFont(ofSize: 12)
-        infolabel.textColor = .black
-        infolabel.backgroundColor = .yellow
-        infolabel.textAlignment = .center
-        infolabel.numberOfLines = 0
-        return infolabel
+        let label = UILabel()
+        label.text = "description"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .black
+        label.backgroundColor = .yellow
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        return label
     }()
     
     private var perfilImageView: UIImageView = {
@@ -34,63 +34,63 @@ final class MyCustomCell: UITableViewCell {
     }()
     
     private let userNameLabel: UILabel = {
-        let nameLabel = UILabel()
-        nameLabel.text = "User Name"
-        nameLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        nameLabel.textColor = .black
-        nameLabel.textAlignment = .center
-        nameLabel.numberOfLines = 0
-        nameLabel.backgroundColor = .yellow
-        return nameLabel
+        let label = UILabel()
+        label.text = "User Name"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.backgroundColor = .yellow
+        return label
     }()
     
     private let fullNameLabel: UILabel = {
-        let fullNameLabel = UILabel()
-        fullNameLabel.text = "Name Surname"
-        fullNameLabel.font = UIFont.boldSystemFont(ofSize: 10)
-        fullNameLabel.textColor = .black
-        fullNameLabel.textAlignment = .center
-        fullNameLabel.numberOfLines = 0
-        fullNameLabel.backgroundColor = .yellow
-        return fullNameLabel
+        let label = UILabel()
+        label.text = "Name Surname"
+        label.font = UIFont.boldSystemFont(ofSize: 10)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.backgroundColor = .yellow
+        return label
     }()
     
     private let forkImageView: UIImageView = {
-       let forkImage = UIImageView()
-        forkImage.contentMode = .scaleAspectFill
-        forkImage.layer.masksToBounds = true
-        forkImage.backgroundColor = .yellow
-        return forkImage
+       let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.layer.masksToBounds = true
+        image.backgroundColor = .yellow
+        return image
     }()
     
     private let branchcounterLabel: UILabel = {
-        let branchLabel = UILabel()
-        branchLabel.text = "58"
-        branchLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        branchLabel.textColor = .black
-        branchLabel.textAlignment = .center
-        branchLabel.numberOfLines = 0
-        branchLabel.backgroundColor = .orange
-        return branchLabel
+        let label = UILabel()
+        label.text = "58"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.backgroundColor = .orange
+        return label
     }()
     
     private let starcounterLabel: UILabel = {
-        let starLabel = UILabel()
-        starLabel.text = "12"
-        starLabel.font = UIFont.boldSystemFont(ofSize: 12)
-        starLabel.textColor = .black
-        starLabel.textAlignment = .center
-        starLabel.numberOfLines = 0
-        starLabel.backgroundColor = .blue
-        return starLabel
+        let label = UILabel()
+        label.text = "12"
+        label.font = UIFont.boldSystemFont(ofSize: 12)
+        label.textColor = .black
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.backgroundColor = .blue
+        return label
     }()
     
     private let starImageView: UIImageView = {
-       let starImage = UIImageView()
-        starImage.contentMode = .scaleAspectFill
-        starImage.layer.masksToBounds = true
-        starImage.backgroundColor = .yellow
-        return starImage
+       let image = UIImageView()
+        image.contentMode = .scaleAspectFill
+        image.layer.masksToBounds = true
+        image.backgroundColor = .yellow
+        return image
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -139,7 +139,7 @@ final class MyCustomCell: UITableViewCell {
         }
         
         fullNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(userNameLabel.snp.bottom).offset(6)
+            make.top.equalTo(userNameLabel.snp.bottom).offset(8)
             make.right.equalTo(contentView.snp.right).offset(-8)
             make.width.equalTo(96)
         }

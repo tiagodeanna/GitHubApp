@@ -74,15 +74,47 @@
 		5A2DED0E28180E310023A497 /* GitHubApp */ = {
 			isa = PBXGroup;
 			children = (
-				5A2DED0F28180E310023A497 /* AppDelegate.swift */,
-				5A2DED1128180E310023A497 /* SceneDelegate.swift */,
-				5A2DED1328180E310023A497 /* ViewController.swift */,
-				5A2DED1828180E330023A497 /* Assets.xcassets */,
-				5A2DED1A28180E330023A497 /* LaunchScreen.storyboard */,
-				5A2DED1D28180E330023A497 /* Info.plist */,
-				5A478AAE281B01070059E249 /* MyCustomCell.swift */,
+				5A86BEB92822CBE300C27BE5 /* Resources */,
+				5A86BEB82822CB4F00C27BE5 /* Application */,
+				5A86BEB72822CB2B00C27BE5 /* Controller */,
+				5A86BEB62822CB1B00C27BE5 /* Cells */,
 			);
 			path = GitHubApp;
+			sourceTree = "<group>";
+		};
+		5A86BEB62822CB1B00C27BE5 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				5A478AAE281B01070059E249 /* MyCustomCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		5A86BEB72822CB2B00C27BE5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5A2DED1328180E310023A497 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		5A86BEB82822CB4F00C27BE5 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				5A2DED0F28180E310023A497 /* AppDelegate.swift */,
+				5A2DED1128180E310023A497 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		5A86BEB92822CBE300C27BE5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5A2DED1D28180E330023A497 /* Info.plist */,
+				5A2DED1A28180E330023A497 /* LaunchScreen.storyboard */,
+				5A2DED1828180E330023A497 /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		B3DC542B3CEB9393767A5374 /* Frameworks */ = {
@@ -358,7 +390,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BT95VNV3L2;
-				INFOPLIST_FILE = GitHubApp/Info.plist;
+				INFOPLIST_FILE = GitHubApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -378,7 +410,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BT95VNV3L2;
-				INFOPLIST_FILE = GitHubApp/Info.plist;
+				INFOPLIST_FILE = GitHubApp/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
