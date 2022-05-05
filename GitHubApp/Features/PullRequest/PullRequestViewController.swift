@@ -6,9 +6,9 @@ final class PullRequestViewController: UIViewController {
         let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.separatorColor = .darkGray
+        tableView.separatorColor = .systemGray
         tableView.backgroundColor = .clear
-        tableView.rowHeight = 150
+        tableView.rowHeight = 184
         tableView.register(PullRequestViewCell.self, forCellReuseIdentifier: "RequestCell")
         return tableView
     }()
@@ -46,6 +46,10 @@ extension PullRequestViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "RequestCell", for: indexPath) as? PullRequestViewCell else {
             return UITableViewCell()
         }
+        cell.update(
+            title: "Título do pull request",
+            perfilImage: "usuario"
+        )
             return cell
         }
     }

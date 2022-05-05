@@ -86,7 +86,7 @@ final class RepositoryViewCell: UITableViewCell {
     }
     
     func update(title: String, perfilImage: String, forkImage: String, starImage: String) {
-        //        titleLabel.text = title
+        titleLabel.text = title
         perfilImageView.image = UIImage(named: perfilImage)
         starImageView.image = UIImage(named: starImage)
         forkImageView.image = UIImage(named: forkImage)
