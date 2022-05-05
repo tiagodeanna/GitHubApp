@@ -39,8 +39,8 @@ final class RepositoryViewCell: UITableViewCell {
     private let fullNameLabel: UILabel = {
         let label = UILabel()
         label.text = "Name Surname"
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .gray
+        label.font = UIFont.systemFont(ofSize: 12)
+        label.textColor = .systemGray3
         label.textAlignment = .center
         return label
     }()
@@ -48,7 +48,6 @@ final class RepositoryViewCell: UITableViewCell {
     private let forkImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.setImageTintColor(.red)
         return imageView
     }()
     
@@ -109,7 +108,7 @@ final class RepositoryViewCell: UITableViewCell {
         ]
         subviews.forEach(contentView.addSubview)
         
-        titleLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+        titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(16)
             make.right.equalTo(userNameLabel.snp.left).offset(-8)
@@ -121,29 +120,28 @@ final class RepositoryViewCell: UITableViewCell {
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.bottom.greaterThanOrEqualTo(branchCounterLabel.snp.top).offset(-8)
             make.left.equalTo(contentView.snp.left).offset(16)
-            make.right.equalTo(userNameLabel.snp.left).offset(-24)
+            make.right.equalTo(titleLabel.snp.right)
         }
         
         perfilImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(userNameLabel.snp.centerX)
             make.top.equalTo(titleLabel.snp.top)
             make.bottom.equalTo(userNameLabel.snp.top).offset(-8)
-            make.left.equalTo(titleLabel.snp.centerX).offset(-16)
-            make.right.equalTo(contentView.snp.right).offset(-24)
             make.height.equalTo(48)
             make.width.equalTo(48)
         }
         
+        userNameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         userNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(perfilImageView.snp.bottom)
-            make.left.equalTo(perfilImageView.snp.left).offset(-24)
+            make.right.equalTo(contentView.snp.right).offset(-16)
+            make.left.equalTo(titleLabel.snp.right).offset(24)
             make.height.equalTo(24)
-            make.width.greaterThanOrEqualTo(90)
         }
         
+        fullNameLabel.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
         fullNameLabel.snp.makeConstraints { make in
-            make.top.equalTo(userNameLabel.snp.bottom).offset(2)
-            make.left.equalTo(userNameLabel.snp.left).offset(-8)
-            make.width.greaterThanOrEqualTo(80)
+            make.centerX.equalTo(userNameLabel.snp.centerX)
+            make.top.equalTo(userNameLabel.snp.bottom).offset(8)
         }
         
         forkImageView.snp.makeConstraints { make in
