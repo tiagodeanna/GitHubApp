@@ -48,6 +48,7 @@ final class RepositoryViewCell: UITableViewCell {
     private let forkImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.setImageTintColor(.red)
         return imageView
     }()
     
@@ -85,10 +86,13 @@ final class RepositoryViewCell: UITableViewCell {
     }
     
     func update(title: String, perfilImage: String, forkImage: String, starImage: String) {
-//        titleLabel.text = title
+        //        titleLabel.text = title
         perfilImageView.image = UIImage(named: perfilImage)
         starImageView.image = UIImage(named: starImage)
         forkImageView.image = UIImage(named: forkImage)
+        
+        starImageView.image = starImageView.image?.withTintColor(.systemOrange)
+        forkImageView.image = forkImageView.image?.withTintColor(.systemOrange)
     }
     
     private func setupConstraints() {
@@ -105,15 +109,13 @@ final class RepositoryViewCell: UITableViewCell {
         ]
         subviews.forEach(contentView.addSubview)
         
-        titleLabel.backgroundColor = .red
         titleLabel.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         titleLabel.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(16)
             make.right.equalTo(userNameLabel.snp.left).offset(-8)
             make.left.equalTo(contentView.snp.left).offset(16)
         }
-                
-        descriptionLabel.backgroundColor = .blue
+        
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(8)
             make.bottom.greaterThanOrEqualTo(branchCounterLabel.snp.top).offset(-8)
@@ -124,7 +126,7 @@ final class RepositoryViewCell: UITableViewCell {
         perfilImageView.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.top)
             make.bottom.equalTo(userNameLabel.snp.top).offset(-8)
-            make.right.equalTo(contentView.snp.right).offset(-16)
+            make.left.equalTo(userNameLabel.snp.left).offset(16)
             make.height.equalTo(48)
             make.width.equalTo(48)
         }
@@ -134,12 +136,12 @@ final class RepositoryViewCell: UITableViewCell {
             make.right.equalTo(contentView.snp.right).offset(-16)
             make.left.equalTo(titleLabel.snp.right).offset(8)
             make.height.equalTo(24)
-            make.width.greaterThanOrEqualTo(80)
+            make.width.greaterThanOrEqualTo(90)
         }
         
         fullNameLabel.snp.makeConstraints { make in
             make.top.equalTo(userNameLabel.snp.bottom).offset(8)
-            make.right.equalTo(contentView.snp.right).offset(-8)
+            make.left.equalTo(userNameLabel.snp.left)
             make.width.equalTo(96)
         }
         
@@ -176,4 +178,26 @@ final class RepositoryViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
+}
+
+extension UIImage {
+    func tint(with color: UIColor) -> UIImage {
+        var image = withRenderingMode(.alwaysTemplate)
+        UIGraphicsBeginImageContextWithOptions(size, false, scale)
+        color.set()
+        
+        image.draw(in: CGRect(origin: .zero, size: size))
+        image = UIGraphicsGetImageFromCurrentImageContext()!
+        UIGraphicsEndImageContext()
+        return image
+    }
+}
+
+extension UIImageView {
+    
+    func setImageTintColor(_ color: UIColor) {
+        let tintedImage = self.image?.withRenderingMode(.alwaysTemplate)
+        self.image = tintedImage
+        self.tintColor = color
+    }
 }
