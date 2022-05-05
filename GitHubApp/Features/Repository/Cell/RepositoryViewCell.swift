@@ -144,8 +144,8 @@ final class RepositoryViewCell: UITableViewCell {
         perfilImageView.snp.makeConstraints { make in
             make.top.equalTo(contentView.snp.top).offset(16)
             make.bottom.equalTo(contentView.snp.bottom).offset(-68)
-            make.right.equalTo(contentView.snp.right).offset(-24)
-            make.height.equalTo(35)
+            make.right.equalTo(contentView.snp.right).offset(-16)
+//            make.height.equalTo(30)
             make.width.equalTo(60)
         }
         
@@ -157,10 +157,10 @@ final class RepositoryViewCell: UITableViewCell {
         }
         
         forkImageView.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(4)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
             make.left.equalTo(contentView.snp.left).offset(16)
-            make.width.equalTo(32)
+            make.width.equalTo(28)
         }
         
         branchcounterLabel.snp.makeConstraints { make in
@@ -171,10 +171,10 @@ final class RepositoryViewCell: UITableViewCell {
         }
         
         starImageView.snp.makeConstraints { make in
-            make.top.equalTo(descriptionLabel.snp.bottom).offset(4)
-            make.bottom.equalTo(contentView.snp.bottom).offset(-4)
+            make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
+            make.bottom.equalTo(contentView.snp.bottom).offset(-8)
             make.left.equalTo(branchcounterLabel.snp.right).offset(4)
-            make.width.equalTo(32)
+            make.width.equalTo(28)
         }
         
         starcounterLabel.snp.makeConstraints { make in

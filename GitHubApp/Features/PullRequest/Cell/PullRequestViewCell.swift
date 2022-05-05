@@ -26,9 +26,9 @@ final class PullRequestViewCell: UITableViewCell {
     private var perfilImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.layer.cornerRadius = 40
+        image.layer.cornerRadius = 26
         image.layer.masksToBounds = true
-        image.backgroundColor = .systemGray4
+        image.backgroundColor = .gray
         return image
     }()
     
