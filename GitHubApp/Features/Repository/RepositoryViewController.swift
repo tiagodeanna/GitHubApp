@@ -5,7 +5,7 @@ import SnapKit
 final class RepositoryViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
-        tableView.rowHeight = 150
+        tableView.rowHeight = 184
         tableView.dataSource = self
         tableView.delegate = self
         tableView.backgroundColor = .white
