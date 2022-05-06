@@ -33,7 +33,6 @@ final class RepositoryViewController: UIViewController {
     
     func configureViews() {
         title = "Github App"
-        view.backgroundColor = .red
     }
     
 }

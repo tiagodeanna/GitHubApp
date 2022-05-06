@@ -35,6 +35,11 @@ final class PullRequestViewController: UIViewController {
         view.backgroundColor = .white
         
     }
+    func tableView(_ tableView: UITableView, titleForHeaderInSection
+                                section: Int) -> String? {
+        
+       "Header \(section)"
+    }
 }
 
 extension PullRequestViewController: UITableViewDataSource {

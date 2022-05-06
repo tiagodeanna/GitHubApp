@@ -83,14 +83,14 @@ final class PullRequestViewCell: UITableViewCell {
             
         descriptionLabel.setContentCompressionResistancePriority(.defaultLow, for: .vertical)
             descriptionLabel.snp.makeConstraints { make in
-                make.top.equalTo(titleLabel.snp.bottom).offset(4)
+                make.top.equalTo(titleLabel.snp.bottom)
                 make.right.equalTo(contentView.snp.right).offset(-16)
                 make.left.equalTo(titleLabel.snp.left)
             }
             
         perfilImageView.setContentCompressionResistancePriority(.defaultHigh, for: .vertical)
             perfilImageView.snp.makeConstraints { make in
-                make.top.equalTo(descriptionLabel.snp.bottom).offset(16)
+                make.top.equalTo(descriptionLabel.snp.bottom).offset(8)
                 make.bottom.equalTo(contentView.snp.bottom).offset(-16)
                 make.left.equalTo(descriptionLabel.snp.left)
                 make.height.equalTo(32)
