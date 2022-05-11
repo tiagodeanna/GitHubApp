@@ -14,9 +14,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         let controller = RepositoryViewController()
         let navigationController = UINavigationController(rootViewController: controller)
+        
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.tintColor = .white
+        navigationController.navigationBar.barStyle = .black
+        navigationController.navigationBar.backgroundColor = .black
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
-        navigationController.navigationBar.barTintColor = UIColor.darkText        
     }
     
 }

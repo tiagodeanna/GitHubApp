@@ -3,7 +3,7 @@ import UIKit
 
 final class PullRequestViewController: UIViewController {
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorColor = .systemGray
@@ -35,11 +35,6 @@ final class PullRequestViewController: UIViewController {
         view.backgroundColor = .white
         
     }
-    func tableView(_ tableView: UITableView, titleForHeaderInSection
-                                section: Int) -> String? {
-        
-       "Header \(section)"
-    }
 }
 
 extension PullRequestViewController: UITableViewDataSource {
@@ -55,13 +50,22 @@ extension PullRequestViewController: UITableViewDataSource {
             title: "Título do pull request",
             perfilImage: "usuario"
         )
-            return cell
-        }
+        return cell
     }
+    
+}
 
 extension PullRequestViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         navigationController?.popViewController(animated: true)
+    }
+    
+        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+           let headerView = PullRequestHeaderView()
+            return headerView
+        }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        48
     }
 }
