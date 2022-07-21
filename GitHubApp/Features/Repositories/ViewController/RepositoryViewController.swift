@@ -18,6 +18,10 @@ final class RepositoryViewController: UIViewController {
         view.backgroundColor = .blue
         setupView()
         configureViews()
+        let service = RepostoriesService()
+        service.getRepositories { (result) in
+            
+        }
     }
     
     private func setupView() {
