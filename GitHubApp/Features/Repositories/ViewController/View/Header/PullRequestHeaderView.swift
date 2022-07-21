@@ -5,7 +5,11 @@ final class PullRequestHeaderView: UIView {
         let label = UILabel()
         let stringValue = "16 opened / 800 closed"
         let stringToColor = "16 opened"
-        let range = (stringValue as NSString).range(of: stringToColor)
+        let range = (
+            stringValue as NSString
+        ).range(
+            of: stringToColor
+        )
         let attributedString = NSMutableAttributedString(string: stringValue)
         attributedString.addAttribute(
             NSAttributedString.Key.foregroundColor,

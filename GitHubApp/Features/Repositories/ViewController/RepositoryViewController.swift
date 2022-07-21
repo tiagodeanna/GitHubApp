@@ -12,7 +12,7 @@ final class RepositoryViewController: UIViewController {
         tableView.register(RepositoryViewCell.self, forCellReuseIdentifier: "Cell")
         return tableView
     }()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
@@ -34,7 +34,6 @@ final class RepositoryViewController: UIViewController {
     func configureViews() {
         title = "Github App"
     }
-    
 }
 
 extension RepositoryViewController: UITableViewDataSource {

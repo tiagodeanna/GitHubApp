@@ -21,7 +21,6 @@ final class PullRequestViewController: UIViewController {
     
     private func pullrequestsetupView() {
         view.addSubview(tableView)
-        
         tableView.snp.makeConstraints { make in
             make.top.equalTo(view.snp.top)
             make.bottom.equalTo(view.snp.bottom)
@@ -33,7 +32,6 @@ final class PullRequestViewController: UIViewController {
     func configureViews() {
         title = "Lista Pull Request"
         view.backgroundColor = .white
-        
     }
 }
 
