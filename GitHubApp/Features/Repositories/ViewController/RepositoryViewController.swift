@@ -1,38 +1,28 @@
 import UIKit
-
 import SnapKit
 
 final class RepositoryViewController: UIViewController {
-    private lazy var tableView: UITableView = {
-        let tableView = UITableView()
-        tableView.rowHeight = 184
-        tableView.dataSource = self
-        tableView.delegate = self
-        tableView.backgroundColor = .white
-        tableView.register(RepositoryViewCell.self, forCellReuseIdentifier: "Cell")
-        return tableView
+    
+    private let repositoryView: RepositoryView = .init()
+    
+    private lazy var viewModel: RepositoryViewModel = {
+        let viewModel = RepositoryViewModel()
+        viewModel.delegate = self
+        return viewModel
     }()
-        
+    
+    override func loadView() {
+        super.loadView()
+        view = repositoryView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .blue
-        setupView()
         configureViews()
-        let service = RepostoriesService()
-        service.getRepositories { (result) in
-            
-        }
-    }
-    
-    private func setupView() {
-        view.addSubview(tableView)
-        
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(view.snp.top)
-            make.bottom.equalTo(view.snp.bottom)
-            make.left.equalTo(view.snp.left)
-            make.right.equalTo(view.snp.right)
-        }
+//        let service = RepostoriesService()
+//        service.getRepositories { (result) in
+//        }
     }
     
     func configureViews() {
@@ -40,30 +30,16 @@ final class RepositoryViewController: UIViewController {
     }
 }
 
-extension RepositoryViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+extension RepositoryViewController: RepositoryViewModelDelegate {
+    func showRepositories(of repositories: [Repository]) {
+        repositoryView.update(with: repositories)
+
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? RepositoryViewCell else {
-            return UITableViewCell()
-        }
-        cell.update(
-            title: "Nome Repositório",
-            perfilImage: "usuario",
-            forkImage: "fork",
-            starImage: "estrela"
-        )
-        return cell
+}
+extension RepositoryViewController: RepositoryDelegate {
+    func didSelectRepository() {
+         let secondViewController = PullRequestViewController()
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
-    
 }
 
-extension RepositoryViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let secondViewController = PullRequestViewController()
-          navigationController?.pushViewController(secondViewController, animated: true)
-      }
-    
-}

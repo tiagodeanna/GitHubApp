@@ -201,6 +201,23 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		5AC98573288F13E2007478CA /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				5AC98574288F1404007478CA /* View */,
+				5AF84BC42823008D002BA3AB /* PullRequestViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		5AC98574288F1404007478CA /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5AF84BCA2823055A002BA3AB /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		5AD120B12888949B008D6D39 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -224,8 +241,7 @@
 		5AF84BC328230012002BA3AB /* PullRequest */ = {
 			isa = PBXGroup;
 			children = (
-				5AF84BCA2823055A002BA3AB /* Cell */,
-				5AF84BC42823008D002BA3AB /* PullRequestViewController.swift */,
+				5AC98573288F13E2007478CA /* ViewController */,
 			);
 			path = PullRequest;
 			sourceTree = "<group>";

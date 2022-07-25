@@ -175,6 +175,10 @@ final class RepositoryViewCell: UITableViewCell {
         selectionStyle = .none
     }
     
+    func updateView(with repositories: [Repository]) {
+        descriptionLabel.text = repositories.description
+    }
+    
 }
 
 extension UIImage {
