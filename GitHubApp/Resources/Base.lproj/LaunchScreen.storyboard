@@ -15,27 +15,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="what-is-github-1-1" translatesAutoresizingMaskIntoConstraints="NO" id="iev-jo-3K1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_logo" translatesAutoresizingMaskIntoConstraints="NO" id="iev-jo-3K1">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.144548595" green="0.16038516159999999" blue="0.18533846740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="tMN-iy-E2f"/>
+                                    <constraint firstAttribute="height" constant="200" id="zCS-pi-GA7"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" red="0.144548595" green="0.16038516159999999" blue="0.18533846740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="iev-jo-3K1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5xg-pa-NzY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="iev-jo-3K1" secondAttribute="bottom" id="MHe-pD-Ssz"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="iev-jo-3K1" secondAttribute="trailing" id="nRz-OS-DAe"/>
-                            <constraint firstItem="iev-jo-3K1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="oVV-EH-ADX"/>
+                            <constraint firstItem="iev-jo-3K1" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="BBK-F3-16Z"/>
+                            <constraint firstItem="iev-jo-3K1" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="St6-4j-YqX"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
-        <image name="what-is-github-1-1" width="730" height="365"/>
+        <image name="ic_logo" width="333.5" height="333.5"/>
     </resources>
 </document>

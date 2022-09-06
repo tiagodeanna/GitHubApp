@@ -1,20 +1,30 @@
 import Foundation
 
-protocol RepostoriesServiceProtocol: AnyObject {
-    func getRepositories(completion: @escaping (Result<Repositories?, Error>) -> Void)
+protocol RepositoryServiceProtocol: AnyObject {
+    func getRepositories(query: String, page: Int,completion: @escaping (Result<Data?, Error>) -> Void)
 }
 
-final class RepostoriesService: RepostoriesServiceProtocol {
-    func getRepositories(completion: @escaping (Result<Repositories?, Error>) -> Void) {
-        URLSession.shared.dataTask(with: Endpoint.repositories.url) { (data, response, error) in
+final class RepositoryService: RepositoryServiceProtocol {
+    private let session: URLSession
+    
+    init(session: URLSession = URLSession.shared) {
+        self.session = session
+    }
+    
+    func getRepositories(
+        query: String,
+        page: Int,
+        completion: @escaping (Result<Data?, Error>) -> Void
+    ) {
+        session.dataTask(with: Endpoint.repositories(query: query, page: page).url) { (data, response, error) in
             DispatchQueue.main.async {
                 if let error = error {
                     completion(.failure(error))
                 } else {
                     do {
                         if let data = data {
-                            let jsonDecoded = try JSONDecoder().decode(Repositories.self, from: data)
-                            completion(.success(jsonDecoded))
+                            _ = try JSONDecoder().decode(RepositoryData.self, from: data)
+                            completion(.success(data))
                             print(data.prettyPrintedJSONString ?? "")
                         }
                     } catch {

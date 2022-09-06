@@ -1,12 +1,12 @@
 import Foundation
 
 enum Endpoint {
-    case repositories
+    case repositories(query: String, page: Int)
     
     var url: URL {
         switch self {
-        case .repositories:
-            return URL(string:  "https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1")!
+        case let .repositories(query, page):
+            return URL(string: "\(Environment.baseURL)/search/repositories?q=language:\(query)&sort=stars&page=\(page)")!
         }
     }
 }

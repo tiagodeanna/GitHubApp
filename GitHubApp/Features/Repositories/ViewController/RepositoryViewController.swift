@@ -1,11 +1,12 @@
 import UIKit
-import SnapKit
 
-final class RepositoryViewController: UIViewController {
+final class RepositoriesViewController: UIViewController {
+    private lazy var repositoriesView: RepositoriesView = {
+        let view = RepositoriesView()
+        return view
+    }()
     
-    private let repositoryView: RepositoryView = .init()
-    
-    private lazy var viewModel: RepositoryViewModel = {
+    private lazy var viewModel: RepositoryViewModel  = {
         let viewModel = RepositoryViewModel()
         viewModel.delegate = self
         return viewModel
@@ -13,33 +14,30 @@ final class RepositoryViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
-        view = repositoryView
+        view = repositoriesView
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .blue
-        configureViews()
-//        let service = RepostoriesService()
-//        service.getRepositories { (result) in
-//        }
+        title = "GitHub JavaPop"
     }
     
-    func configureViews() {
-        title = "Github App"
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.searchRepositories(with: "Java")
     }
 }
 
-extension RepositoryViewController: RepositoryViewModelDelegate {
-    func showRepositories(of repositories: [Repository]) {
-        repositoryView.update(with: repositories)
-
+extension RepositoriesViewController: RepositoryViewModelDelegate {
+       func showRepositoryData(of data: RepositoryData) {
+        repositoriesView.update(with: data)
+    }
+    
+    func showEmpty() {
+        print("showEmpty")
+    }
+    
+    func showError(message: String?) {
+        print(message ?? String())
     }
 }
-extension RepositoryViewController: RepositoryDelegate {
-    func didSelectRepository() {
-         let secondViewController = PullRequestViewController()
-        navigationController?.pushViewController(secondViewController, animated: true)
-    }
-}
-
