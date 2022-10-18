@@ -3,7 +3,7 @@ import Lottie
 import SnapKit
 
 final class LaunchViewController: UIViewController {
-    private let animationView = AnimationView(name: "github_app_icon")
+    private let animationView = AnimationView(name: "github_circle")
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -15,4 +15,17 @@ extension Data {
         else { return nil }
         return prettyPrintedString
     }
+    
+    func parse<Model: Decodable>(completion: @escaping (Result<Model, APIError>) -> Void) {
+        do {
+            let jsonDecoded = try JSONDecoder().decode(Model.self, from: self)
+            completion(.success(jsonDecoded))
+            print(prettyPrintedJSONString ?? "")
+        } catch {
+            print("========= Begin error to decode =========")
+            print(error)
+            print("========= End error to decode =========")
+            completion(.failure(.errorDecode))
+        }
+    }
 }

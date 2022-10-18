@@ -1,18 +1,25 @@
 import UIKit
 import SnapKit
 
+protocol RepositoriesViewDelegate: AnyObject {
+    func didSelect(repo: Repository)
+    func didPrefetchRowsAt(indexPaths: [IndexPath])
+}
+
 final class RepositoriesView: UIView {
-    
-    private var repositories: [Repository] = []
-    
+    weak var delegate: RepositoriesViewDelegate?
     
     private lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.dataSource = self
+        tableView.delegate = self
+        tableView.prefetchDataSource = self
         tableView.register(cellType: RepositoriesViewCell.self)
         tableView.rowHeight = 200
         return tableView
     }()
+    
+    private var repositories: [Repository] = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,8 +31,8 @@ final class RepositoriesView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func update(with data: RepositoryData) {
-        repositories = data.repositories ?? []
+    func updateView(with items: [Repository]) {
+        repositories = items
         tableView.reloadData()
     }
 }
@@ -57,5 +64,17 @@ extension RepositoriesView: UITableViewDataSource {
         let cell: RepositoriesViewCell = tableView.dequeueReusableCell(forIndexPath: indexPath)
         cell.updateView(with: repositories[indexPath.row])
         return cell
+    }
+}
+
+extension RepositoriesView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.didSelect(repo: repositories[indexPath.row])
+    }
+}
+
+extension RepositoriesView: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        delegate?.didPrefetchRowsAt(indexPaths: indexPaths)
     }
 }

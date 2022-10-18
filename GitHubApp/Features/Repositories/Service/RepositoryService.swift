@@ -1,7 +1,7 @@
 import Foundation
 
 protocol RepositoryServiceProtocol: AnyObject {
-    func getRepositories(query: String, page: Int,completion: @escaping (Result<Data?, Error>) -> Void)
+    func getRepositories(query: String, page: Int, completion: @escaping (Result<Repositories, APIError>) -> Void)
 }
 
 final class RepositoryService: RepositoryServiceProtocol {
@@ -14,23 +14,16 @@ final class RepositoryService: RepositoryServiceProtocol {
     func getRepositories(
         query: String,
         page: Int,
-        completion: @escaping (Result<Data?, Error>) -> Void
+        completion: @escaping (Result<Repositories, APIError>) -> Void
     ) {
-        session.dataTask(with: Endpoint.repositories(query: query, page: page).url) { (data, response, error) in
+        session.dataTask(with: Endpoint.repositories(query: query, page: page).url) { data, response, error in
             DispatchQueue.main.async {
                 if let error = error {
-                    completion(.failure(error))
+                    completion(.failure(.failed(error: error)))
+                } else if let data = data {
+                    data.parse(completion: completion)
                 } else {
-                    do {
-                        if let data = data {
-                            _ = try JSONDecoder().decode(RepositoryData.self, from: data)
-                            completion(.success(data))
-                            print(data.prettyPrintedJSONString ?? "")
-                        }
-                    } catch {
-                        print(error)
-                        completion(.failure(error))
-                    }
+                    fatalError("Data veio como nil")
                 }
             }
         }.resume()

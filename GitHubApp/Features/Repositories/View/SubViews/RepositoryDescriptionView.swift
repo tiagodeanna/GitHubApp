@@ -43,6 +43,11 @@ final class RepositoryDescriptionView: UIView {
         titleLabel.text = repository.name
         descriptionLabel.text = repository.description
     }
+    
+    func updateView(with pull: PullRequest) {
+        titleLabel.text = pull.title
+        descriptionLabel.text = pull.head?.repo?.description
+    }
 }
 
 extension RepositoryDescriptionView: ViewCode {

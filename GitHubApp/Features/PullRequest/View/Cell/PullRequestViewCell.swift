@@ -4,13 +4,11 @@ import Reusable
 final class PullRequestsViewCell: UITableViewCell, Reusable {
     private let descriptionView: RepositoryDescriptionView = {
         let view = RepositoryDescriptionView()
-        view.backgroundColor = .gray
         return view
     }()
     
     private let authorView: RepositoryAuthorView = {
         let view = RepositoryAuthorView(axis: .horizontal)
-        view.backgroundColor = .red
         return view
     }()
     
@@ -22,6 +20,11 @@ final class PullRequestsViewCell: UITableViewCell, Reusable {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func updateView(with pull: PullRequest) {
+        descriptionView.updateView(with: pull)
+        authorView.updateView(with: pull)
     }
 }
 

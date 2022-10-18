@@ -54,7 +54,7 @@ final class RepositoryAuthorView: UIView {
     
     // MARK: - Public Methods -
     
-    func update(with repository: Repository) {
+    func updateView(with repository: Repository) {
         usernameLabel.text = repository.owner?.login
         fullNameLabel.text = repository.fullName
         
@@ -65,19 +65,29 @@ final class RepositoryAuthorView: UIView {
         userImageView.kf.setImage(with: url)
     }
     
+    func updateView(with pull: PullRequest) {
+        usernameLabel.text = pull.head?.repo?.owner?.login
+        fullNameLabel.text = pull.head?.repo?.fullName
+        
+        guard let avatarURL = pull.head?.repo?.owner?.avatarURL, let url = URL(string: avatarURL) else {
+            userImageView.image = UIImage(named: "ic_avatar")
+            return
+        }
+        userImageView.kf.setImage(with: url)
+    }
+    
     // MARK: - Private Methods -
     
     private func setupVerticalConstraints() {
         userImageView.snp.makeConstraints { make in
+            make.centerX.equalTo(snp.centerX)
             make.top.equalTo(snp.top)
-            make.bottom.equalTo(usernameLabel.snp.top).offset(-4)
+            make.bottom.equalTo(stackView.snp.top).offset(-4)
             make.width.equalTo(56)
             make.height.equalTo(56)
-            make.centerX.equalTo(snp.centerX)
         }
-        
+
         stackView.snp.makeConstraints { make in
-            make.top.equalTo(userImageView.snp.bottom)
             make.bottom.equalTo(snp.bottom)
             make.left.equalTo(snp.left)
             make.right.equalTo(snp.right)

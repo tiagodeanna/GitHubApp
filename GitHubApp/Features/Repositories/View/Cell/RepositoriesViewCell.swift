@@ -30,7 +30,7 @@ final class RepositoriesViewCell: UITableViewCell, Reusable {
     
     func updateView(with repository: Repository) {
         descriptionView.update(with: repository)
-        authorView.update(with: repository)
+        authorView.updateView(with: repository)
         infosView.update(with: repository)
     }
 }

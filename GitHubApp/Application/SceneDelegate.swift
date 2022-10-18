@@ -31,7 +31,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate, CAAnimationDelega
         self.window?.rootViewController = launchViewController
         self.window?.makeKeyAndVisible()
                 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0) {
             LaunchScreenAnimation.animate(
                 sender: self,
                 controller: navigationController,

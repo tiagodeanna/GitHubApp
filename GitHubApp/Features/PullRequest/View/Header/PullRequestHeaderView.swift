@@ -19,8 +19,8 @@ final class PullRequestHeaderView: UITableViewHeaderFooterView, Reusable {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func updateView() {
-        titleLabel.setDifferentColor(of: "16 opened / 800 closed")
+    func updateView(title: String) {
+        titleLabel.setDifferentColor(of: title)
     }
 }
 
